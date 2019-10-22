@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using lab4.Data;
 using lab4.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Lab4COM3773.Controllers
 {
+    [Authorize]
     public class CitiesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -44,12 +46,12 @@ namespace Lab4COM3773.Controllers
             return View(city);
         }
 
-        // GET: Citiesa/Create
-        // public IActionResult Create()
-        // {
-        //     ViewBag.ListOfProvs = getProvincesSelectList();
-        //     return View();
-        // }
+        //GET: Citiesa/Create
+        public IActionResult Create()
+        {
+            ViewBag.ListOfProvs = getProvincesSelectList();
+            return View();
+        }
 
         // POST: Cities/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

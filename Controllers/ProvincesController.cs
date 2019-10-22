@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using lab4.Data;
 using lab4.Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Lab4COM3773.Controllers
 {
+    [Authorize]
     public class ProvincesController : Controller
     {
         private readonly ApplicationDbContext _context;
